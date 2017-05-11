@@ -11,4 +11,29 @@ public class VerifyVIdeo extends Video{
 	private Data sendTime;
 	//用户ID
 	private int uId;
+	public int getVvId() {
+		return vvId;
+	}
+	public void setVvId(int vvId) {
+		this.vvId = vvId;
+	}
+	public boolean isAccess() {
+		return access;
+	}
+	public void setAccess(boolean access) {
+		this.access = access;
+	}
+	public Data getSendTime() {
+		return sendTime;
+	}
+	public void setSendTime(Data sendTime) {
+		this.sendTime = sendTime;
+	}
+	public int getuId() {
+		return uId;
+	}
+	public void setuId(int uId) {
+		this.uId = uId;
+	}
+	
 }

@@ -15,4 +15,41 @@ public class Comment {
 	private int oppose;
 	//评论日期
 	private Date date;
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public int getuId() {
+		return uId;
+	}
+	public void setuId(int uId) {
+		this.uId = uId;
+	}
+	public int getmId() {
+		return mId;
+	}
+	public void setmId(int mId) {
+		this.mId = mId;
+	}
+	public int getAgree() {
+		return agree;
+	}
+	public void setAgree(int agree) {
+		this.agree = agree;
+	}
+	public int getOppose() {
+		return oppose;
+	}
+	public void setOppose(int oppose) {
+		this.oppose = oppose;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 }
