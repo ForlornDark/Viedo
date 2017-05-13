@@ -1,15 +1,15 @@
 package com.llhc.video.bean;
 
-import com.mysql.fabric.xmlrpc.base.Data;
+import java.util.Date;
 
 public class VerifyVIdeo extends Video{
-	//送审ID
+	//閫佸ID
 	private int vvId;
-	//是否审核通过
+	//鏄惁瀹℃牳閫氳繃
 	private boolean access;
-	//发送审核时间
-	private Data sendTime;
-	//用户ID
+	//鍙戦�佸鏍告椂闂�
+	private Date sendTime;
+	//鐢ㄦ埛ID
 	private int uId;
 	public int getVvId() {
 		return vvId;
@@ -23,10 +23,10 @@ public class VerifyVIdeo extends Video{
 	public void setAccess(boolean access) {
 		this.access = access;
 	}
-	public Data getSendTime() {
+	public Date getSendTime() {
 		return sendTime;
 	}
-	public void setSendTime(Data sendTime) {
+	public void setSendTime(Date sendTime) {
 		this.sendTime = sendTime;
 	}
 	public int getuId() {
