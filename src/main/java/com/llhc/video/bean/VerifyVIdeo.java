@@ -3,13 +3,13 @@ package com.llhc.video.bean;
 import java.util.Date;
 
 public class VerifyVIdeo extends Video{
-	//閫佸ID
+	//审核ID
 	private int vvId;
-	//鏄惁瀹℃牳閫氳繃
+	//是否通过
 	private boolean access;
-	//鍙戦�佸鏍告椂闂�
+	//审核发送时间
 	private Date sendTime;
-	//鐢ㄦ埛ID
+	//发送的用户ID
 	private int uId;
 	public int getVvId() {
 		return vvId;
