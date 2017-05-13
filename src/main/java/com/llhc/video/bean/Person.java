@@ -3,6 +3,8 @@ package com.llhc.video.bean;
 import java.io.Serializable;
 
 public abstract class Person implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	//用户ID
 	private int uId;
 	//用户名
