@@ -6,24 +6,21 @@ public abstract class Person implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	//用户ID
-	private int uId;
+	private int uid;
 	//用户名
 	private String name;
 	//用户密码
 	private String password;
 	//用户邮箱
 	private String mail;
-	//用户角色
-	public abstract byte getRole();
-	
-	public int getuId() {
-		return uId;
-	}
 
-	public void setuId(int uId) {
-		this.uId = uId;
-	}
 
+	public Integer getUid() {
+		return uid;
+	}
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 	public String getName() {
 		return name;
 	}

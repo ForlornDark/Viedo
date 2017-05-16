@@ -12,14 +12,14 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-	<context:component-scan base-package="com.ll.aop"></context:component-scan>
+	<context:component-scan base-package="com.llhc.video.aop"></context:component-scan>
 	
 	<aop:config>
 		<aop:aspect id="myAspect" ref="logAOPXML">
 			<aop:before method="logBefore" pointcut-ref="servicePointCut"/>
-			<aop:pointcut expression="execution(* com.ll.service.*.*(..))" id="servicePointCut"/>
+			<aop:pointcut expression="execution(* com.llhc.video.service.*.*(..))" id="servicePointCut"/>
 		</aop:aspect>
 	</aop:config>
 	
-	<bean id="logAOPXML" class="com.ll.aop.LogAOPXML"></bean>
+	<bean id="logAOPXML" class="com.llhc.video.aop.LogAOPXML"></bean>
 </beans>

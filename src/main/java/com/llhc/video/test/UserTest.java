@@ -11,7 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.llhc.video.bean.User;
-import com.llhc.video.dao.impl.UserService;
+import com.llhc.video.service.UserService;
+
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,10 +26,10 @@ public class UserTest {
 	@Test
 	public void getUsers() {
 		
-		List<User>users=userService.getUsers();
-		for (User u:users) {
-			System.out.println(u.getName());
-		}
+//		List<User>users=userService.getUsers();
+//		for (User u:users) {
+//			System.out.println(u.getName());
+//		}
 	}
 
 }

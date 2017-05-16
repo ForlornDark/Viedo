@@ -14,7 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.llhc.video.dao.impl.UserService;
+import com.llhc.video.service.UserService;
+
+
 
 @Controller
 @WebServlet("/user.do")
@@ -22,7 +24,7 @@ public class UserServlet  extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	private UserService uService;
+	private UserService userService;
 	
 	@Override
 	public void init() throws ServletException {
@@ -37,6 +39,6 @@ public class UserServlet  extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		uService.getUsers();
+		userService.getUser();
 	}
 }

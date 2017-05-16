@@ -1,4 +1,4 @@
-package com.llhc.video.dao.impl;
+package com.llhc.video.service;
 
 import java.util.List;
 
@@ -6,5 +6,7 @@ import com.llhc.video.bean.User;
 
 public interface UserService {
 
-	public List<User> getUsers();
+	public void getUser();
+	
+	public User getUserById();
 }
