@@ -3,6 +3,10 @@
 <configuration>
 	<mappers>
 		<mapper resource="com/llhc/video/bean/UserMapper.xml"/>
+		<mapper resource="com/llhc/video/bean/CommentMapper.xml"/>
+		<mapper resource="com/llhc/video/bean/ManagerMapper.xml"/>
+		<mapper resource="com/llhc/video/bean/VideoMapper.xml"/>
+		<mapper resource="com/llhc/video/bean/VerifyVideoMapper.xml"/>
 	</mappers>
 	
 </configuration>

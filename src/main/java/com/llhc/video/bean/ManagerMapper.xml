@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.llhc.video.dao.ManagerDao">
+	
+	<select id="getManagers" resultType="com.llhc.video.bean.Manager">
+		select * from manager
+	</select>
+	<select id="getManagerById" resultType="com.llhc.video.bean.Manager" parameterType="java.lang.Integer">
+        select * from manager where mid = #{mid}
+   	</select>
+   	<select id="getManagerByName" resultType="com.llhc.video.bean.Manager" parameterType="java.lang.String">
+        select * from manager where name = #{name}
+   	</select>
+   	<insert id="addManager" parameterType="com.llhc.video.bean.Manager" useGeneratedKeys="true" keyProperty="uid">
+   		insert into manager (name, password, mail) values(#{name}, #{password}, #{mail})
+   	</insert>
+	<update id="updateManager" parameterType="com.llhc.video.bean.Manager" useGeneratedKeys="true" keyProperty="uid">
+   		update manager set name=#{name}, password=#{password}, mail=#{mail} where mid=#{mid}
+   	</update>
+   	<delete id="deleteManagerById" parameterType="java.lang.Integer">  
+   		delete from manager where mid=#{mid}
+   	</delete>
+
+</mapper>

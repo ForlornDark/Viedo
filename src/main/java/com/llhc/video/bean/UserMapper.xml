@@ -11,13 +11,13 @@
    	<select id="getUserByName" resultType="com.llhc.video.bean.User" parameterType="java.lang.String">
         select * from user where name = #{name}
    	</select>
-   	<insert id="addUser" parameterType="com.llhc.video.bean.User">
+   	<insert id="addUser" parameterType="com.llhc.video.bean.User" useGeneratedKeys="true" keyProperty="uid">
    		insert into user (name, password, mail) values(#{name}, #{password}, #{mail})
    	</insert>
-	<update id="updateUser" parameterType="com.llhc.video.bean.User">
+	<update id="updateUser" parameterType="com.llhc.video.bean.User" useGeneratedKeys="true" keyProperty="uid">
    		update user set name=#{name}, password=#{password}, mail=#{mail} where uid=#{uid}
    	</update>
-   	<delete id="deleteUserById" parameterType="java.lang.Integer">
+   	<delete id="deleteUserById" parameterType="java.lang.Integer">  
    		delete from user where uid=#{uid}
    	</delete>
 

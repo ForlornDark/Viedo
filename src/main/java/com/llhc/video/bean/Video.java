@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Video {
 	//电影ID
-	private int vId;
+	private int vid;
 	//电影名
 	private String name;
 	//电影产地
@@ -18,7 +18,7 @@ public class Video {
 	//电影评分
 	private float score;
 	//审核通过管理员ID
-	private int uId;
+	private int mid;
 	//电影地址
 	private String location;
 	//上映日期
@@ -27,11 +27,18 @@ public class Video {
 	private Date update;
 	//下载次数
 	private int downCount;
-	public int getvId() {
-		return vId;
+
+	public int getVid() {
+		return vid;
 	}
-	public void setvId(int vId) {
-		this.vId = vId;
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
+	public int getMid() {
+		return mid;
+	}
+	public void setMid(int mid) {
+		this.mid = mid;
 	}
 	public String getName() {
 		return name;
@@ -69,12 +76,7 @@ public class Video {
 	public void setScore(float score) {
 		this.score = score;
 	}
-	public int getuId() {
-		return uId;
-	}
-	public void setuId(int uId) {
-		this.uId = uId;
-	}
+
 	public String getLocation() {
 		return location;
 	}

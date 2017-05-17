@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.llhc.video.dao.CommentDao">
+	
+	<select id="getCommentsByUid" resultType="com.llhc.video.bean.Comment" parameterType="java.lang.Integer">
+		select * from comment where uid = #{uid}
+	</select>
+	<select id="getCommentsByVid" resultType="com.llhc.video.bean.Comment" parameterType="java.lang.Integer">
+        select * from comment where vid = #{vid}
+   	</select>
+   	<insert id="addComment" parameterType="com.llhc.video.bean.Comment" useGeneratedKeys="true" keyProperty="cid">
+   		insert into comment (content, uid, vid, agree, oppose, date) values(#{content}, #{uid}, #{vid}, #{agree}, #{oppose}, #{date})
+   	</insert>
+	<update id="updateAgree" parameterType="com.llhc.video.bean.Comment" useGeneratedKeys="true" keyProperty="cid">
+   		update comment set agree=#{agree} where cid=#{cid}
+   	</update>
+   	<update id="updateOppose" parameterType="com.llhc.video.bean.Comment" useGeneratedKeys="true" keyProperty="cid">
+   		update comment set oppose=#{oppose} where cid=#{cid}
+   	</update>
+   	<delete id="deleteCommentById" parameterType="java.lang.Integer">  
+   		delete from comment where cid=#{cid}
+   	</delete>
+
+</mapper>

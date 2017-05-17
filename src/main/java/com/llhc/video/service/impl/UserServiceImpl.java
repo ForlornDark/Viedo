@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 		user.setName("bill");
 		user.setMail("116993@qq.com");
 		user.setPassword("12345647897");
-		userDao.addUser(user);
+		System.out.println(userDao.addUser(user));
 		
 	}
 
@@ -52,16 +52,16 @@ public class UserServiceImpl implements UserService {
 		
 		User user = new User();
 		user.setUid(2);
-		user.setName("bill");
+		user.setName("bbs");
 		user.setMail("116993@qq.com");
 		user.setPassword("12345647897");
-		userDao.updateUser(user);
+		System.out.println(userDao.updateUser(user));
 		
 	}
 
 	public void deleteUserById() {
 		
-		userDao.deleteUserById(3);
+		System.out.println(userDao.deleteUserById(5));
 		
 	}
 

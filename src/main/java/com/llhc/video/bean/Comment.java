@@ -3,35 +3,45 @@ package com.llhc.video.bean;
 import java.util.Date;
 
 public class Comment {
+	private int cid;
 	//评论内容
 	private String content;
 	//评论用户ID
-	private int uId;
+	private int uid;
 	//评论电影ID
-	private int mId;
+	private int vid;
 	//同意次数
 	private int agree;
 	//反对次数
 	private int oppose;
 	//评论日期
 	private Date date;
+	
+	
+	public int getVid() {
+		return vid;
+	}
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getuId() {
-		return uId;
+
+	public int getUid() {
+		return uid;
 	}
-	public void setuId(int uId) {
-		this.uId = uId;
-	}
-	public int getmId() {
-		return mId;
-	}
-	public void setmId(int mId) {
-		this.mId = mId;
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 	public int getAgree() {
 		return agree;

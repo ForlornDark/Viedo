@@ -39,6 +39,6 @@ public class UserServlet  extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		userService.addUser();
+		userService.deleteUserById();
 	}
 }

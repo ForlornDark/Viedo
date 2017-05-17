@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.llhc.video.dao.VideoDao">
+	
+	<select id="getVideos" resultType="com.llhc.video.bean.Video">
+		select * from video
+	</select>
+	<select id="getVideoById" resultType="com.llhc.video.bean.Video" parameterType="java.lang.Integer">
+        select * from video where vid = #{vid}
+   	</select>
+   	<select id="getVideoByName" resultType="com.llhc.video.bean.Video" parameterType="java.lang.String">
+        select * from video where name = #{name}
+   	</select>
+   	<insert id="addVideo" parameterType="com.llhc.video.bean.Video" useGeneratedKeys="true" keyProperty="vid">
+   		insert into video (name, area, type, language, introduce, score, mid, location, release, update, downcount)
+   		 values(#{name}, #{area}, #{type}, #{language}, #{introduce}, #{score}, #{mid}, #{location}, #{release}, #{update}, #{downcount})
+   	</insert>
+	<update id="updateVideo" parameterType="com.llhc.video.bean.Video" useGeneratedKeys="true" keyProperty="vid">
+   		update video set name=#{name}, area=#{area}, type=#{type}, language=#{language}, introduce=#{introduce}, score=#{score}, 
+   		mid=#{mid}, location=#{location}, release=#{release}, update=#{update}, downcount=#{downcount} where vid=#{vid}
+   	</update>
+   	<delete id="deleteVideoById" parameterType="java.lang.Integer">  
+   		delete from video where vid=#{vid}
+   	</delete>
+
+</mapper>

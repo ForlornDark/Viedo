@@ -4,36 +4,39 @@ import java.util.Date;
 
 public class VerifyVIdeo extends Video{
 	//审核ID
-	private int vvId;
+	private int vvid;
 	//是否通过
 	private boolean access;
 	//审核发送时间
-	private Date sendTime;
+	private Date sendtime;
 	//发送的用户ID
-	private int uId;
-	public int getVvId() {
-		return vvId;
-	}
-	public void setVvId(int vvId) {
-		this.vvId = vvId;
-	}
+	private int uid;
+	
+
 	public boolean isAccess() {
 		return access;
 	}
 	public void setAccess(boolean access) {
 		this.access = access;
 	}
-	public Date getSendTime() {
-		return sendTime;
+	public int getVvid() {
+		return vvid;
 	}
-	public void setSendTime(Date sendTime) {
-		this.sendTime = sendTime;
+	public void setVvid(int vvid) {
+		this.vvid = vvid;
 	}
-	public int getuId() {
-		return uId;
+	public Date getSendtime() {
+		return sendtime;
 	}
-	public void setuId(int uId) {
-		this.uId = uId;
+	public void setSendtime(Date sendtime) {
+		this.sendtime = sendtime;
 	}
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
 	
 }
