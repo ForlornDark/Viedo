@@ -24,10 +24,48 @@ public class UserServiceImpl implements UserService {
 			System.out.println(u.getName());
 		}
 	}
-
-	public User getUserById() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public void getUserById() {
+		
+		User user = userDao.getUserById(2);
+		System.out.println(user.getName());
+		
 	}
+
+	public void getUserByName() {
+		
+		User user = userDao.getUserByName("vss");
+		System.out.println(user.getName());
+	}
+
+	public void addUser() {
+		
+		User user = new User();
+		user.setName("bill");
+		user.setMail("116993@qq.com");
+		user.setPassword("12345647897");
+		userDao.addUser(user);
+		
+	}
+
+	public void updateUser() {
+		
+		User user = new User();
+		user.setUid(2);
+		user.setName("bill");
+		user.setMail("116993@qq.com");
+		user.setPassword("12345647897");
+		userDao.updateUser(user);
+		
+	}
+
+	public void deleteUserById() {
+		
+		userDao.deleteUserById(3);
+		
+	}
+
+
+
 
 }
