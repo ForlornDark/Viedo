@@ -2,19 +2,19 @@ package com.llhc.video.dao;
 
 import java.util.List;
 
-import com.llhc.video.bean.VerifyVIdeo;
+import com.llhc.video.bean.VerifyVideo;
 
 public interface VerifyVideoDao {
 	
-	public List<VerifyVIdeo> getVerifyVideos();
+	public List<VerifyVideo> getVerifyVideos();
 	
-	public VerifyVIdeo getVerifyVideoById(Integer vvid);
+	public VerifyVideo getVerifyVideoById(Integer vvid);
 	
-	public VerifyVIdeo getVerifyVideoByName(String name);
+	public VerifyVideo getVerifyVideoByName(String name);
 	
-	public Integer addVerifyVideo(VerifyVIdeo verifyVIdeo);
+	public Integer addVerifyVideo(VerifyVideo verifyVideo);
 	
-	public Integer updateVerifyVideo(VerifyVIdeo verifyVIdeo);
+	public Integer updateVerifyVideo(VerifyVideo verifyVideo);
 	
 	public Integer deleteVerifyVideoById(Integer vvid); 
 }

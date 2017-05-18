@@ -2,7 +2,7 @@ package com.llhc.video.bean;
 
 import java.util.Date;
 
-public class VerifyVIdeo extends Video{
+public class VerifyVideo extends Video{
 	//审核ID
 	private int vvid;
 	//是否通过
