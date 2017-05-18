@@ -26,7 +26,7 @@ public class Video {
 	//更新日期
 	private Date update;
 	//下载次数
-	private int downCount;
+	private int downcount;
 
 	public int getVid() {
 		return vid;
@@ -95,11 +95,12 @@ public class Video {
 	public void setUpdate(Date update) {
 		this.update = update;
 	}
-	public int getDownCount() {
-		return downCount;
+	public int getDowncount() {
+		return downcount;
 	}
-	public void setDownCount(int downCount) {
-		this.downCount = downCount;
+	public void setDowncount(int downcount) {
+		this.downcount = downcount;
 	}
+
 	
 }
