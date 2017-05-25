@@ -3,12 +3,21 @@
 <title>Single</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/detail.css" rel="stylesheet" type="text/css" media="all">
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<link href="css/detail2.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/detail.js"></script>
+
+<link rel="stylesheet" href="css/normalize.min.css">
+<link rel="stylesheet" href="css/score.css">
+<script src="js/jquery-3.2.1.min.js"></script>	
+<script src="js/jquery.barrating.js"></script>
+<script src="js/score.js"></script>
 </head>
 <body>
-<div class="container">
-	<div class="container_wrap">
+	<div class="top_topic">
+	<h1>视频分享网站</h1>
+	<input placeholder="输入搜索关键字" class="key">
+	<input type="button" value="搜索" class="search">
+</div>	
+
 	   <div class="content">
       	   <div class="movie_top">
       	         <div class="col-md-9 movie_box">
@@ -20,16 +29,16 @@
                             
                         </div> 
                         <div class="desc1 span_3_of_2">
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                        	<p class="movie_option"><strong>国家: </strong><i>中国</i></p>
-                            <div class="down_btn"><a class="btn1" href="">Download</a></div>
+                        <h2>影视名称</h2>
+                        	<p class="movie_option"><strong>地区: </strong><i>中国</i></p>
+                        	<p class="movie_option"><strong>类型: </strong><i>动作</i></p>
+                        	<p class="movie_option"><strong>上映日期: </strong><i>2017-05-22</i></p>
+                        	<p class="movie_option"><strong>更新日期: </strong><i>2017-05-22</i></p>
+                        		<p class="movie_option"><strong>下载地址: </strong></p>
+                        		<input type="text" readonly="readonly" class="url_text" value="thunder://QUFodHRwOi8vZGwxMTUuODBzLmltOjkyMC8xNzA1L+mAn2TkuI7mv4Dmg4U4L+mAn2TkuI7mv4Dmg4U4Lm1wNFpa"> 
+                        		
+                        	<div class="down_btn"><a class="btn1" href="" onclick="copyToClipBoard2()">点击复制</a></div>
+                         <div class="down_btn"><a class="btn1" href="">点击下载</a></div>
                          </div>
                         <div class="clearfix"> </div>
                         <p class="m_4">影视详情</p>
@@ -37,32 +46,22 @@
 					<div class="text">
 			                   <textarea placeholder="评论内容" ></textarea>
 			                </div>
-			                	<fieldset>					
-								   <section>
-								     <div class="rating">
-										<input type="radio" name="stars-rating" id="stars-rating-10">
-										<label for="stars-rating-10"><i class="icon-star"></i></label>
-										<input type="radio" name="stars-rating" id="stars-rating-9">
-										<label for="stars-rating-9"><i class="icon-star"></i></label>
-										<input type="radio" name="stars-rating" id="stars-rating-8">
-										<label for="stars-rating-8"><i class="icon-star"></i></label>
-										<input type="radio" name="stars-rating" id="stars-rating-7">
-										<label for="stars-rating-7"><i class="icon-star"></i></label>
-										<input type="radio" name="stars-rating" id="stars-rating-6">
-										<label for="stars-rating-6"><i class="icon-star"></i></label>
-<input type="radio" name="stars-rating" id="stars-rating-5">
-										<label for="stars-rating-5"><i class="icon-star"></i></label>
-										<input type="radio" name="stars-rating" id="stars-rating-4">
-										<label for="stars-rating-4"><i class="icon-star"></i></label>
-										<input type="radio" name="stars-rating" id="stars-rating-3">
-										<label for="stars-rating-3"><i class="icon-star"></i></label>
-										<input type="radio" name="stars-rating" id="stars-rating-2">
-										<label for="stars-rating-2"><i class="icon-star"></i></label>
-										<input type="radio" name="stars-rating" id="stars-rating-1">
-										<label for="stars-rating-1"><i class="icon-star"></i></label>
-									 </div>
-								  </section>
-							    </fieldset>
+			                	<div class="box-body">
+			                
+								<select id="example-f" name="rating">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>
+								
+							</div>
 			                <div class="form-submit1">
 					           <input name="submit" type="submit" id="submit" value="Submit Your Message"><br>
 					        </div>
@@ -95,7 +94,6 @@
                       <div class="clearfix"> </div>
                   </div>
            </div>
-    </div>
-</div>
+  
 </body>
 </html>

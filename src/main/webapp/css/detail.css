@@ -6,6 +6,9 @@ p {margin: 0;}
 html, body{
 	font-family: 'Roboto Condensed', sans-serif;
 	background:#fff;
+	padding-left:5%;
+	padding-right:5%;
+	padding-top:20px;
 }
 body a{
 	transition:0.5s all;
@@ -14,16 +17,34 @@ body a{
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
 }
-.container_wrap{
-	padding:5em 0;
+
+top_topic{
+	margin-top:40px;
+	margin-bottom:20px;
+}
+.top_topic h1{
+	margin:0;
+	float:left;
+}
+.top_topic .key{
+	margin-left:30px;
+	width:300px;
+	height:40px;
+	font-size:18px;
+}
+.top_topic .search{
+	width:80px;
+	height:40px;
+	margin-left:-4px;
+	font-size:18px;
 }
 
-/* Shutter Out Horizontal */
-
-
 .content{
+	margin-top:20px;
 	background:#edeff0;
-	padding:2em;
+	padding-top:30px;
+	padding-left:20px;
+	
 }
 /*--movie--*/
 
@@ -210,4 +231,8 @@ outline: none;
 }
 .form-submit1 input[type="submit"]:hover{
 	background: #424242;
+}
+.url_text{
+	width:400px;
+	height:30px;
 }
