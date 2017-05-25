@@ -1,9 +1,4 @@
-
-<!--  
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    -->
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -16,55 +11,18 @@
 </head>
 
 <body>
-	
-		<ul>
-			<li>类型</li>
-			<li>动作</li>
-			<li>喜剧</li>
-			<li>爱情</li>
-			<li>科幻</li>
-			<li>灾难</li>
-			<li>惊悚</li>
-			<li>动画</li>
-			<li>奇幻</li>
-			<li>战争</li>
-			<li>其他</li>
-		</ul>
-		<ul>
-			<li>地区</li>
-			<li>大陆</li>
-			<li>香港</li>
-			<li>美国</li>
-			<li>韩国</li>
-			<li>日本</li>
-			<li>台湾</li>
-			<li>法国</li>
-			<li>英国</li>
-			<li>其他</li>
-			
-		</ul>
-		<ul>
-			<li>年代</li>
-			<li>2017</li>
-			<li>2016</li>
-			<li>2015</li>
-			<li>2014</li>
-			<li>2013</li>
-			<li>2012</li>
-			<li>2011</li>
-			<li>2010</li>
-			<li>00年代</li>
-			<li>90年代</li>
-		</ul>
-<div id="main">
-	<div class="demo">
-		<nav class="main_nav">
+<div class="top_topic">
+	<h1>视频分享网站</h1>
+	<input placeholder="输入搜索关键字" class="key">
+	<input type="button" value="搜索" class="search">
+</div>	
+<nav class="main_nav">
 			<ul>
 				<li><a class="cd-signin" href="#0">登录</a></li>
 				<li><a class="cd-signup" href="#0">注册</a></li>
 			</ul>
-		</nav>
-	</div>
+</nav>
+<div class="top_login">
 	<div class="cd-user-modal"> 
 		<div class="cd-user-modal-container">
 			<ul class="cd-switcher">
@@ -122,10 +80,115 @@
 					</p>
 				</form>
 			</div>
+
 			<a href="#0" class="cd-close-form">关闭</a>
 		</div>
 	</div> 
 	
 </div>
+<div class="body">
+  <div class="block3">
+		<h3>热门电影</h3>
+		<ul>
+			<li><h4>1</h4><a href="detail.html">电影1</a><span>5月20日</span></li>
+			<li><h4>2</h4><a>电影2</a><span>5月20日</span></li>
+			<li><h4>3</h4><a>电影3</a><span>5月20日</span></li>
+			<li><h4>4</h4><a>电影4</a><span>5月20日</span></li>
+			<li><h4>5</h4><a>电影5</a><span>5月20日</span></li>
+			<li><h4>6</h4><a>电影6</a><span>5月20日</span></li>
+			<li><h4>7</h4><a>电影7</a><span>5月20日</span></li>
+			<li><h4>8</h4><a>电影8</a><span>5月20日</span></li>
+			<li><h4>9</h4><a>电影9</a><span>5月20日</span></li>
+			<li><h4>10</h4><a>电影10</a><span>5月20日</span></li>
+			<li><h4>11</h4><a>电影11</a><span>5月20日</span></li>
+			<li><h4>12</h4><a>电影12</a><span>5月20日</span></li>
+			<li><h4>13</h4><a>电影13</a><span>5月20日</span></li>
+			<li><h4>14</h4><a>电影14</a><span>5月20日</span></li>
+			<li><h4>15</h4><a>电影15</a><span>5月20日</span></li>
+			
+		</ul>
+		
+  </div>
+  <div class="block2">
+    <div class="top">
+		<ul>
+			<li>类型</li>
+			<li class="type_selected"><a>动作</a></li>
+			<li><a>喜剧</a></li>
+			<li><a>爱情</a></li>
+			<li><a>科幻</a></li>
+			<li><a>灾难</a></li>
+			<li><a>惊悚</a></li>
+			<li><a>动画</a></li>
+			<li><a>奇幻</a></li>
+			<li><a>战争</a></li>
+			<li><a>其他</a></li>
+		</ul><br>
+		<ul>
+			<li>地区</li>
+			<li><a>大陆</a></li>
+			<li><a>香港</a></li>
+			<li><a>美国</a></li>
+			<li><a>韩国</a></li>
+			<li><a>日本</a></li>
+			<li><a>台湾</a></li>
+			<li><a>法国</a></li>
+			<li><a>英国</a></li>
+			<li><a>其他</a></li>
+			
+		</ul><br>
+		<ul>
+			<li>年代</li>
+			<li><a>2017</a></li>
+			<li><a>2016</a></li>
+			<li><a>2015</a></li>
+			<li><a>2014</a></li>
+			<li><a>2013</a></li>
+			<li><a>2012</a></li>
+			<li><a>2011</a></li>
+			<li><a>2010</a></li>
+			<li><a>00年代</a></li>
+			<li><a>90年代</a></li>
+		</ul><br>
+	</div>
+	
+	<div class ="order">
+		<ul> 
+			<li><a>最新</a></li>
+			<li><a>最热</a></li>
+			<li><a>评分最高</a></li>
+		</ul>
+	</div><br>
+	<div class="list_video">
+		<ul>
+			<li><a title="长城   4分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
+			
+		</ul>
+		
+	</div>
+	<br>
+	<div class="pager">
+			<a>上一页</a>
+			<a>1</a>
+			<strong>2</strong>
+			<a>3</a>
+			<a>4</a>
+			<a>5</a>
+			<a>下一页</a>
+	</div>
+  </div>
+  
 </body>
 </html>

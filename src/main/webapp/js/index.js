@@ -7,6 +7,7 @@ jQuery(document).ready(function($){
 		$tab_signup = $form_modal_tab.children('li').eq(1).children('a'),
 		$main_nav = $('.main_nav');
 
+	//弹出窗口
 	$main_nav.on('click', function(event){
 
 		if( $(event.target).is($main_nav) ) {
@@ -22,16 +23,21 @@ jQuery(document).ready(function($){
 		}
 
 	});
+
+	//关闭弹出窗口
 	$('.cd-user-modal').on('click', function(event){
 		if( $(event.target).is($form_modal) || $(event.target).is('.cd-close-form') ) {
 			$form_modal.removeClass('is-visible');
 		}	
 	});
+	//使用Esc键关闭弹出窗口
 	$(document).keyup(function(event){
     	if(event.which=='27'){
     		$form_modal.removeClass('is-visible');
 	    }
     });
+
+	//切换表单
 	$form_modal_tab.on('click', function(event) {
 		event.preventDefault();
 		($(event.target).is( $tab_login ))? login_selected() : signup_selected();

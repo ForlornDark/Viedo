@@ -1,7 +1,6 @@
-.main_nav {width:300px; height:60px; margin:60px auto 10px auto}
+.main_nav {width:220px; height:60px;}
 .main_nav li{float:left; width:60px; margin-right:10px; font-size:16px;  
   padding: .6em 1em;
-  
   border-radius: 3em;
   background: #2f889a;
   text-align:center
