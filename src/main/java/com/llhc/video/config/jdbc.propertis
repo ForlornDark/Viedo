@@ -1,4 +1,7 @@
 mysql.driver=com.mysql.jdbc.Driver
-mysql.url=jdbc:mysql://120.25.94.199:3306/video
+mysql.url=jdbc:mysql://120.25.94.199:3306/video?characterEncoding=utf-8
 mysql.username=vps
 mysql.password=123
+mysql.maxActive=100
+mysql.maxIdle=30
+mysql.maxWait=1000
