@@ -17,6 +17,7 @@
   </context-param>
   
   <!-- 监听Spring容器中配置文件,目的当Tomcat启动后会初始化Spring容器中的配置文件 -->
+  
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
