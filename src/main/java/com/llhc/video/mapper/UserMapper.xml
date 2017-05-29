@@ -21,4 +21,7 @@
    		delete from user where uid=#{uid}
    	</delete>
 
+ 	<select id="getUserByNameEmail" resultType="com.llhc.video.bean.User" parameterType="java.util.Map">
+        select * from user where name = #{name} and mail = #{email}
+   	</select>
 </mapper>

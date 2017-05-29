@@ -17,4 +17,6 @@ public interface VideoDao {
 	public Integer updateVideo(Video video);
 	
 	public Integer deleteVideoById(Integer vid);
+
+	public List<Video> getVideoBykey(String key);
 }

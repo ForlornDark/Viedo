@@ -1,7 +1,6 @@
 package com.llhc.video.service;
 
 import java.util.List;
-
 import com.llhc.video.bean.User;
 
 public interface UserService {
@@ -10,9 +9,11 @@ public interface UserService {
 	
 	public void getUserById();
 	
-	public void getUserByName();
+	public User getUserByName(String name);
 	
-	public void addUser();
+	public User getUserByNameEmail(String name,String email);
+	
+	public int addUser(User user);
 	
 	public void updateUser();
 	

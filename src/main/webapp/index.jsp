@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -6,21 +9,104 @@
 <title>视频分享网站</title>
 <link rel="stylesheet" type="text/css" href="css/index.css" />
 <link rel="stylesheet" type="text/css" href="css/login.css" />
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script src="js/index.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath }/js/index.js"></script>
+<script type="text/javascript">
+	$(function () {
+		selectList();
+		
+		$("#login").click(function() {
+			$.post("findUserByName.do",{"name":$("#signin-username").val(),"password":$("#signin-password").val()},function(data){
+  				if(data == 1) {		
+  					$(".top_login").css('display','none'); 
+  					history.go(0);
+  				} else {
+  					$(".fieldset_error").show(); 
+  				
+  				}
+  			},"text");
+		});
+		$("#sihnup").click(function() {
+			$.post("sinup.do",{"name":$("#signup-username").val(),"password":$("#signup-password").val(),"email":$("#signup-email").val()},function(data){
+  				if(data == 1) {		
+  					$(".top_login").css('display','none'); 
+  					history.go(0);
+  				} else {
+  					$(".fieldset_error2").show(); 
+  				
+  				}
+  			},"text");
+		});
+		$(".search").click(function() {
+			$.post("search.do",{"key":$("#key").val()},function(data){
+					$("#ull").remove();
+					var videoList='<ul id="ull">'
+					$.each($.parseJSON(data),function(j,vi){
+						
+						videoList+='<li><a title="'+vi.name+'   '+vi.score+'分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">'+vi.score+'</span></a><h3><a>'+vi.name+'</a></h3></li>';
+					});	
+					videoList+='</ul>';
+					console.log(videoList);
+					$(".list_video").append(videoList);
+  			},"text");
+		});
+	});
+	function selectList() {
+		 $.ajax({
+				url : "selectList.do",
+				type : "post",
+				dataType:"json",
+				contentType : "application/json;charset=UTF-8",
+				cache : false,
+				success : function(data) {
+					$("#ull").remove();
+					var videoList='<ul id="ull">'
+					$.each(data,function(i,v){
+						
+						videoList+='<li><a title="'+v.name+'   '+v.score+'分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">'+v.score+'</span></a><h3><a>'+v.name+'</a></h3></li>';
+					});	
+					videoList+='</ul>';
+					console.log(videoList);
+					$(".list_video").append(videoList);
+				}	
+		});
+	}
+	function logout() {
+		$.post("logout.do",function(data){
+			if(data == 1) {
+				history.go(0) ;
+  				console.log("退出成功");
+  			} else {
+  				console.log("退出失败");
+  			}
+		});
+	}
+</script>
 </head>
 <body>
 <div class="top_topic">
 	<h1>视频分享网站</h1>
-	<input placeholder="输入搜索关键字" class="key">
-	<input type="button" value="搜索" class="search">
+	<input type="text" id="key" placeholder="输入搜索关键字" class="key">
+	<input type="button"  value="搜索" class="search">
 </div>	
-<nav class="main_nav">
-			<ul>
-				<li><a class="cd-signin" href="#0">登录</a></li>
-				<li><a class="cd-signup" href="#0">注册</a></li>
-			</ul>
-</nav>
+<c:choose>
+	<c:when test="${!empty sessionScope.user }">
+		<nav class="main_nav2" style="position:absolute;left:70%;top:20px;">
+				<ul>
+					<li>欢迎你！${sessionScope.user.name }</li>
+					<li><input onclick="logout()" type="button" value="退出"></li>
+				</ul>
+		</nav>
+	</c:when>
+	<c:otherwise>
+		<nav class="main_nav">
+					<ul>
+						<li><a class="cd-signin" href="#0">登录</a></li>
+						<li><a class="cd-signup" href="#0">注册</a></li>
+					</ul>
+		</nav>
+	</c:otherwise>
+</c:choose>
 <div class="top_login">
 	<div class="cd-user-modal"> 
 		<div class="cd-user-modal-container">
@@ -46,8 +132,11 @@
 						<label for="remember-me">记住登录状态</label>
 					</p>
 
+					<p class="fieldset_error" style="display:none;">
+						<span style="color:red;">登录失败，请检查账户密码是否正确！</span>
+					</p>
 					<p class="fieldset">
-						<input class="full-width2" type="submit" value="登 录">
+						<input id="login" class="full-width2" type="button" value="登 录">
 					</p>
 				</form>
 			</div>
@@ -73,19 +162,18 @@
 						<input type="checkbox" id="accept-terms">
 						<label for="accept-terms">我已阅读并同意 <a href="#0">用户协议</a></label>
 					</p>
-
+					<p class="fieldset_error2" style="display:none;">
+						<span style="color:red;">用户名或邮箱已存在！</span>
+					</p>
 					<p class="fieldset">
-						<input class="full-width2" type="submit" value="注册新用户">
+						<input id="sihnup" class="full-width2" type="button" value="注册新用户">
 					</p>
 				</form>
 			</div>
-
-			<a href="#0" class="cd-close-form">关闭</a>
 		</div>
 	</div> 
-	
 </div>
-<div class="body">
+
   <div class="block3">
 		<h3>热门电影</h3>
 		<ul>
@@ -158,24 +246,10 @@
 			<li><a>评分最高</a></li>
 		</ul>
 	</div><br>
+	
+
 	<div class="list_video">
-		<ul>
-			<li><a title="长城   4分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			<li><a><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">4.0</span></a><h3><a>长城</a></h3></li>
-			
-		</ul>
-		
+		<ul id="ull"></ul>
 	</div>
 	<br>
 	<div class="pager">

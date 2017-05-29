@@ -1,6 +1,8 @@
 package com.llhc.video.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,19 +32,14 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-	public void getUserByName() {
+	public User getUserByName(String name) {
 		
-		User user = userDao.getUserByName("vss");
-		System.out.println(user.getName());
+		return userDao.getUserByName(name);
 	}
 
-	public void addUser() {
+	public int addUser(User user) {
 		
-		User user = new User();
-		user.setName("bill");
-		user.setMail("116993@qq.com");
-		user.setPassword("12345647897");
-		System.out.println(userDao.addUser(user));
+		return userDao.addUser(user);
 		
 	}
 
@@ -61,6 +58,14 @@ public class UserServiceImpl implements UserService {
 		
 		System.out.println(userDao.deleteUserById(5));
 		
+	}
+
+	public User getUserByNameEmail(String name,String email) {
+	
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("name", name);
+		map.put("email", email);
+		return userDao.getUserByNameEmail(map);
 	}
 
 

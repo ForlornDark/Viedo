@@ -2,6 +2,7 @@ package com.llhc.video.dao;
 
 
 import java.util.List;
+import java.util.Map;
 
 import com.llhc.video.bean.User;;
 
@@ -18,4 +19,6 @@ public interface UserDao {
 	public Integer updateUser(User user);
 	
 	public Integer deleteUserById(Integer uid);
+
+	public User getUserByNameEmail(Map<String, Object> map);
 }

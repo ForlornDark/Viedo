@@ -23,4 +23,7 @@
    		delete from video where vid=#{vid}
    	</delete>
 
+	<select id="getVideoBykey" resultType="com.llhc.video.bean.Video" parameterType="java.lang.String">
+        select * from video where name like "%"#{key}"%"
+   	</select>
 </mapper>
