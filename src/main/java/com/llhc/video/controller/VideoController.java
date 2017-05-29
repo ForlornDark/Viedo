@@ -83,13 +83,12 @@ public class VideoController {
 	}
 	
 	@RequestMapping("detail")
-	public void detail(Integer vid,HttpServletRequest request,HttpServletResponse response) {
+	public void detail(Integer vid,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		
 		Video video=videoServiceImpl.findVideoById(vid);
 		List<Comment> comments=commentSeriuceImpl.findManagersByVid(vid);
-		
-		for(Comment c:comments){
-			System.out.println(c.getContent());
-		}
+		request.setAttribute("video", video);
+		request.setAttribute("comments", comments);
+		request.getRequestDispatcher("detail.jsp").forward(request, response);
 	}
 }

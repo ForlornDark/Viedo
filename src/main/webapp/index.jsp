@@ -11,47 +11,8 @@
 <link rel="stylesheet" type="text/css" href="css/login.css" />
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
 <script src="${pageContext.request.contextPath }/js/index.js"></script>
+<script src="${pageContext.request.contextPath }/js/ajax.js"></script>
 <script type="text/javascript">
-	$(function () {
-		selectList();
-		//selectList1();
-		
-		$("#login").click(function() {
-			$.post("findUserByName.do",{"name":$("#signin-username").val(),"password":$("#signin-password").val()},function(data){
-  				if(data == 1) {		
-  					$(".top_login").css('display','none'); 
-  					history.go(0);
-  				} else {
-  					$(".fieldset_error").show(); 
-  				
-  				}
-  			},"text");
-		});
-		$("#sihnup").click(function() {
-			$.post("sinup.do",{"name":$("#signup-username").val(),"password":$("#signup-password").val(),"email":$("#signup-email").val()},function(data){
-  				if(data == 1) {		
-  					$(".top_login").css('display','none'); 
-  					history.go(0);
-  				} else {
-  					$(".fieldset_error2").show(); 
-  				
-  				}
-  			},"text");
-		});
-		$(".search").click(function() {
-			$.post("search.do",{"key":$("#key").val()},function(data){
-					$("#ull").remove();
-					var videoList='<ul id="ull">'
-					$.each($.parseJSON(data),function(j,vi){
-						
-						videoList+='<li><a title="'+vi.name+'   '+vi.score+'分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">'+vi.score+'</span></a><h3><a>'+vi.name+'</a></h3></li>';
-					});	
-					videoList+='</ul>';
-					console.log(videoList);
-					$(".list_video").append(videoList);
-  			},"text");
-		});
-	});
 	
 	function selectList() {
 		 $.ajax({
@@ -65,7 +26,7 @@
 					var videoList=''
 					$.each(data,function(i,v){
 						
-						videoList+='<li><a title="'+v.name+'   '+v.score+'分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">'+v.score+'</span></a><h3><a>'+v.name+'</a></h3></li>';
+						videoList+='<li><a title="'+v.name+'   '+v.score+'分" href="detail.do?vid='+v.vid+'"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">'+v.score+'</span></a><h3><a href="detail.do?vid='+v.vid+'">'+v.name+'</a></h3></li>';
 					});	
 				
 					console.log(videoList);
@@ -97,21 +58,12 @@
 	}
 	
 	
-	function logout() {
-		$.post("logout.do",function(data){
-			if(data == 1) {
-				history.go(0) ;
-  				console.log("退出成功");
-  			} else {
-  				console.log("退出失败");
-  			}
-		});
-	}
+
 </script>
 </head>
 <body>
 <div class="top_topic">
-	<h1>视频分享网站</h1>
+	<h1><a href="index.jsp">视频分享网站</a></h1>
 	<input type="text" id="key" placeholder="输入搜索关键字" class="key">
 	<input type="button"  value="搜索" class="search">
 </div>	
