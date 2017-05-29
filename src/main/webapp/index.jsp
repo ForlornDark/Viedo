@@ -14,6 +14,7 @@
 <script type="text/javascript">
 	$(function () {
 		selectList();
+		//selectList1();
 		
 		$("#login").click(function() {
 			$.post("findUserByName.do",{"name":$("#signin-username").val(),"password":$("#signin-password").val()},function(data){
@@ -51,6 +52,7 @@
   			},"text");
 		});
 	});
+	
 	function selectList() {
 		 $.ajax({
 				url : "selectList.do",
@@ -59,18 +61,42 @@
 				contentType : "application/json;charset=UTF-8",
 				cache : false,
 				success : function(data) {
-					$("#ull").remove();
-					var videoList='<ul id="ull">'
+			
+					var videoList=''
 					$.each(data,function(i,v){
 						
 						videoList+='<li><a title="'+v.name+'   '+v.score+'分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">'+v.score+'</span></a><h3><a>'+v.name+'</a></h3></li>';
 					});	
-					videoList+='</ul>';
+				
 					console.log(videoList);
-					$(".list_video").append(videoList);
+					$("#ull").append(videoList);
 				}	
 		});
 	}
+	function selectList1() {
+		 $.ajax({
+			url : "selectList1.do",
+			type : "post",
+			dataType:"json",
+			contentType : "application/json;charset=UTF-8",
+			cache : false,
+			success : function(data) {
+				
+				console.log(data);
+				/*$("#ull").remove();
+				var videoList='<ul id="ull">'
+				$.each(data,function(i,v){
+					
+					videoList+='<li><a title="'+v.name+'   '+v.score+'分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">'+v.score+'</span></a><h3><a>'+v.name+'</a></h3></li>';
+				});	
+				videoList+='</ul>';
+				console.log(videoList);
+				$(".list_video").append(videoList);*/
+			}	
+		});
+	}
+	
+	
 	function logout() {
 		$.post("logout.do",function(data){
 			if(data == 1) {
@@ -200,28 +226,28 @@
     <div class="top">
 		<ul>
 			<li>类型</li>
-			<li class="type_selected"><a>动作</a></li>
-			<li><a>喜剧</a></li>
-			<li><a>爱情</a></li>
-			<li><a>科幻</a></li>
-			<li><a>灾难</a></li>
-			<li><a>惊悚</a></li>
-			<li><a>动画</a></li>
-			<li><a>奇幻</a></li>
-			<li><a>战争</a></li>
-			<li><a>其他</a></li>
+			<li class="type_selected"><a href="findVideoByType.do?type=1">动作</a></li>
+			<li><a href="findVideoByType.do?type=2">喜剧</a></li>
+			<li><a href="findVideoByType.do?type=3">爱情</a></li>
+			<li><a href="findVideoByType.do?type=4">科幻</a></li>
+			<li><a href="findVideoByType.do?type=5">灾难</a></li>
+			<li><a href="findVideoByType.do?type=6">惊悚</a></li>
+			<li><a href="findVideoByType.do?type=7">动画</a></li>
+			<li><a href="findVideoByType.do?type=8">奇幻</a></li>
+			<li><a href="findVideoByType.do?type=9">战争</a></li>
+			<li><a href="findVideoByType.do?type=10">其他</a></li>
 		</ul><br>
 		<ul>
 			<li>地区</li>
-			<li><a>大陆</a></li>
-			<li><a>香港</a></li>
-			<li><a>美国</a></li>
-			<li><a>韩国</a></li>
-			<li><a>日本</a></li>
-			<li><a>台湾</a></li>
-			<li><a>法国</a></li>
-			<li><a>英国</a></li>
-			<li><a>其他</a></li>
+			<li><a href="findVideoByArea.do?area=1">大陆</a></li>
+			<li><a href="findVideoByArea.do?area=2">香港</a></li>
+			<li><a href="findVideoByArea.do?area=3">美国</a></li>
+			<li><a href="findVideoByArea.do?area=4">韩国</a></li>
+			<li><a href="findVideoByArea.do?area=5">日本</a></li>
+			<li><a href="findVideoByArea.do?area=6">台湾</a></li>
+			<li><a href="findVideoByArea.do?area=7">法国</a></li>
+			<li><a href="findVideoByArea.do?area=8">英国</a></li>
+			<li><a href="findVideoByArea.do?area=9">其他</a></li>
 			
 		</ul><br>
 		<ul>
@@ -242,14 +268,22 @@
 	<div class ="order">
 		<ul> 
 			<li><a>最新</a></li>
-			<li><a>最热</a></li>
-			<li><a>评分最高</a></li>
+			<li><a href="findVideosByDowncount.do">最热</a></li>
+			<li><a href="findVideosByScore.do">评分最高</a></li>
 		</ul>
 	</div><br>
 	
 
 	<div class="list_video">
-		<ul id="ull"></ul>
+		<ul id="ull">
+		<c:if test="${videos }==null">
+		<span style="color: blue;font-size: 40px">出错啦，没有相关视频！！！</span>
+		</c:if>
+		<c:forEach items="${videos }" var="v" varStatus="status">
+			<li><a title="${v.name}   ${ v.score}分" href="detail.do?vid=${v.vid }"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">${ v.score}</span></a><h3><a href="detail.do?vid=${v.vid }">${v.name}</a></h3></li>
+		</c:forEach>
+		</ul>
+		
 	</div>
 	<br>
 	<div class="pager">

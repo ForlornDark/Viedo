@@ -8,9 +8,15 @@
 	<select id="getVideoById" resultType="com.llhc.video.bean.Video" parameterType="java.lang.Integer">
         select * from video where vid = #{vid}
    	</select>
-   	<select id="getVideoByName" resultType="com.llhc.video.bean.Video" parameterType="java.lang.String">
-        select * from video where name = #{name}
+   	<select id="getVideoByType" resultType="com.llhc.video.bean.Video" parameterType="java.lang.Integer">
+        select * from video where type = #{type}
    	</select>
+   	
+   	 <select id="getVideoByArea" resultType="com.llhc.video.bean.Video" parameterType="java.lang.Integer">
+        select * from video where area = #{area}
+   	</select>
+   
+   	
    	<insert id="addVideo" parameterType="com.llhc.video.bean.Video" useGeneratedKeys="true" keyProperty="vid">
    		insert into video (name, area, type, language, introduce, score, mid, location, release, update, downcount)
    		 values(#{name}, #{area}, #{type}, #{language}, #{introduce}, #{score}, #{mid}, #{location}, #{release}, #{update}, #{downcount})
@@ -26,4 +32,23 @@
 	<select id="getVideoBykey" resultType="com.llhc.video.bean.Video" parameterType="java.lang.String">
         select * from video where name like "%"#{key}"%"
    	</select>
+   	
+   	<select id="getVideosByDate" resultType="com.llhc.video.bean.Video" >
+        select * from video order by ${update} desc limit 5
+   	</select>
+   	
+   	 <select id="findVideosByScore" resultType="com.llhc.video.bean.Video">
+        select * from video 
+		<if test="score !=null">
+			order by score desc
+		</if>
+   	</select>
+   	
+   	 <select id="findVideosByDowncount" resultType="com.llhc.video.bean.Video">
+        select * from video 
+		<if test="downcount !=null">
+			order by downcount desc
+		</if>
+   	</select>
+   	
 </mapper>

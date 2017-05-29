@@ -16,4 +16,5 @@ public interface ManagerDao {
 	public Integer updateManager(Manager manager);
 	
 	public Integer deleteManagerById(Integer mid);
+
 }
