@@ -1,6 +1,7 @@
 package com.llhc.video.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -45,8 +46,8 @@ public class VideoController {
 	@RequestMapping("selectList1")
 	@ResponseBody
 	public List<Video> selectList1() {
-		
 		List<Video> videos2 =videoServiceImpl.getVideos2();
+		
 		return videos2;
 	}
 	

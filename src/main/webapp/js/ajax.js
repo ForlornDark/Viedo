@@ -1,6 +1,6 @@
 	$(function () {
 		selectList();
-		//selectList1();
+		selectList1();
 		
 		$("#login").click(function() {
 			$.post("findUserByName.do",{"name":$("#signin-username").val(),"password":$("#signin-password").val()},function(data){

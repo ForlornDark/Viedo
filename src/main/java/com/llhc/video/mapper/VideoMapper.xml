@@ -34,7 +34,7 @@
    	</select>
    	
    	<select id="getVideosByDate" resultType="com.llhc.video.bean.Video" >
-        select * from video order by ${update} desc limit 5
+        select * from video
    	</select>
    	
    	 <select id="findVideosByScore" resultType="com.llhc.video.bean.Video">

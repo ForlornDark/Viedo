@@ -43,20 +43,34 @@
 			cache : false,
 			success : function(data) {
 				
-				console.log(data);
-				/*$("#ull").remove();
-				var videoList='<ul id="ull">'
+				//console.log(data);
+				var newDate = new Date();
+				var videoList=''
 				$.each(data,function(i,v){
 					
-					videoList+='<li><a title="'+v.name+'   '+v.score+'分" href="detail.html"><img src="http://t.dyxz.la/upload/img/201612/poster_20161215_8653110_b.jpg"><span class="item_score">'+v.score+'</span></a><h3><a>'+v.name+'</a></h3></li>';
+					videoList+='<li><h4>'+v.vid+'</h4><a href="detail.do?vid='+v.vid+'">'+v.name+'</a><span>'+formatDateTime(v.update)+'</span></li>';
 				});	
-				videoList+='</ul>';
+				
 				console.log(videoList);
-				$(".list_video").append(videoList);*/
+				$("#ull2").append(videoList);
 			}	
 		});
 	}
-	
+	function formatDateTime(inputTime) {  
+		    var date = new Date(inputTime);
+		    var y = date.getFullYear();  
+		    var m = date.getMonth() + 1;  
+		    m = m < 10 ? ('0' + m) : m;  
+		    var d = date.getDate();  
+		    d = d < 10 ? ('0' + d) : d;  
+		    var h = date.getHours();
+		    h = h < 10 ? ('0' + h) : h;
+		    var minute = date.getMinutes();
+		    var second = date.getSeconds();
+		    minute = minute < 10 ? ('0' + minute) : minute;  
+		    second = second < 10 ? ('0' + second) : second; 
+		    return y + '-' + m + '-' + d;  
+	}
 	
 
 </script>
@@ -154,22 +168,8 @@
 
   <div class="block3">
 		<h3>热门电影</h3>
-		<ul>
-			<li><h4>1</h4><a href="detail.html">电影1</a><span>5月20日</span></li>
-			<li><h4>2</h4><a>电影2</a><span>5月20日</span></li>
-			<li><h4>3</h4><a>电影3</a><span>5月20日</span></li>
-			<li><h4>4</h4><a>电影4</a><span>5月20日</span></li>
-			<li><h4>5</h4><a>电影5</a><span>5月20日</span></li>
-			<li><h4>6</h4><a>电影6</a><span>5月20日</span></li>
-			<li><h4>7</h4><a>电影7</a><span>5月20日</span></li>
-			<li><h4>8</h4><a>电影8</a><span>5月20日</span></li>
-			<li><h4>9</h4><a>电影9</a><span>5月20日</span></li>
-			<li><h4>10</h4><a>电影10</a><span>5月20日</span></li>
-			<li><h4>11</h4><a>电影11</a><span>5月20日</span></li>
-			<li><h4>12</h4><a>电影12</a><span>5月20日</span></li>
-			<li><h4>13</h4><a>电影13</a><span>5月20日</span></li>
-			<li><h4>14</h4><a>电影14</a><span>5月20日</span></li>
-			<li><h4>15</h4><a>电影15</a><span>5月20日</span></li>
+		<ul id="ull2">
+			
 			
 		</ul>
 		
