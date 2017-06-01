@@ -100,9 +100,9 @@
                          </div>
                         <div class="clearfix"> </div>
                         <p class="m_4">影视详情</p>
-		                <form method="post" action="">
+		                <form method="post" action="addComment.do">
 					<div class="text">
-			                   <textarea placeholder="评论内容" ></textarea>
+			                   <textarea placeholder="评论内容"  name="context"></textarea>
 			                </div>
 			                	<div class="box-body">
 			                
@@ -121,7 +121,9 @@
 								
 							</div>
 			                <div class="form-submit1">
+			                <input name="vid" value="${video.vid}" type="hidden">
 					           <input name="submit" type="submit" id="submit" value="Submit Your Message"><br>
+					           
 					        </div>
 							<div class="clearfix"></div>
                  		</form>

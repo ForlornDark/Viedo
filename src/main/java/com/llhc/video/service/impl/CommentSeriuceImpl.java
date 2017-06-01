@@ -1,7 +1,6 @@
 package com.llhc.video.service.impl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +16,11 @@ public class CommentSeriuceImpl implements CommentService {
 	public List<Comment> findManagersByVid(Integer vid) {
 		
 		return commentDao.getCommentsByVid(vid);
+	}
+	public Integer addComment(Comment comment) {
+		
+		return commentDao.addComment(comment);
+		
 	}
 
 }

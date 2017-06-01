@@ -1,7 +1,6 @@
 package com.llhc.video.controller;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.ServletException;
